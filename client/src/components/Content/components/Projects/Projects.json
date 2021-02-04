@@ -1,0 +1,62 @@
+[
+  {
+    "id": "a",
+    "name": "Todolist React",
+    "stack": [
+      {
+        "identifier": "Frontend",
+        "technologies": ["JavaScript", "React"]
+      }
+    ],
+    "github": "https://github.com/Tionbai/TodoApp",
+    "video": "assets/projects/videos/Todolist-React-video.mp4"
+  },
+  {
+    "id": "b",
+    "name": "Todolist Node.js",
+    "stack": [
+      {
+        "identifier": "Frontend",
+        "technologies": ["JavaScript"]
+      },
+      {
+        "identifier": "Backend",
+        "technologies": ["Node.js"]
+      }
+    ],
+    "github": "https://github.com/Tionbai/TodoAppVanilla",
+    "video": "assets/projects/videos/Todolist-Node-video.mp4"
+  },
+  {
+    "id": "c",
+    "name": "The Gospels",
+    "stack": [
+      {
+        "identifier": "Frontend",
+        "technologies": ["JavaScript", "React"]
+      },
+      {
+        "identifier": "Backend",
+        "technologies": ["Node.js", "Express"]
+      }
+    ],
+    "github": "https://github.com/Tionbai/theGospels",
+    "video": "assets/projects/videos/TheGospels-video.mp4"
+  },
+  {
+    "id": "d",
+    "name": "Base setup webpack",
+    "stack": [
+      {
+        "identifier": "Frontend",
+        "technologies": ["JavaScript", "Webpack"]
+      },
+      {
+        "identifier": "Backend",
+        "technologies": ["Node.js", "Express"]
+      }
+    ],
+    "github": "https://github.com/Tionbai/base-app-node-webpack",
+    "video": "assets/projects/videos/Baseapp-webpack-video.mp4"
+  }
+]
