@@ -17,9 +17,6 @@
   cursor: pointer;
   z-index: 2;
 
-  &:hover {
-    opacity: 75%;
-  }
 }
 
 .Project {
@@ -142,28 +139,48 @@
 
 .project-link {
   @include link-button();
-  color: rgba(255, 255, 255, 0.87);
+  color: white;
+
+  &:hover {
+    color: rgb(235, 235, 235);
+  }
 }
 
 .project-link--on-white {
   @include link-button();
   color: var(--primary-color);
+
+  &:hover {
+    color: var(--primary-color-87);
+  }
 }
 
 .project-link--raised {
   @include link-button();
-  background-color: rgba(255, 255, 255, 0.87);
+  background-color: white;
   color: rgb(13, 39, 109);
+
+  &:hover {
+    background-color:rgb(235, 235, 235);
+  }
 }
 
 .project-link--raised--on-white {
   @include link-button();
   background-color: var(--primary-color);
   color: white;
+
+  &:hover {
+    background-color: var(--primary-color-87);
+  }
 }
 
 .project-link:visited {
-  color: rgba(255, 255, 255, 0.87);
+  color: white;
+
+  &:hover {
+    color: rgb(235, 235, 235);
+  }
 }
 
 .flip {

@@ -21,10 +21,6 @@
   letter-spacing: 0.5px;
   border-radius: 20px;
   cursor: pointer;
-
-  &:hover {
-    opacity: 75%;
-  }
 }
 
 @mixin invisibleScrollbarBrowserSupport {
@@ -200,9 +196,20 @@
   z-index: 3;
 }
 
-.contact-form__button,
+.contact-form__button {
+  @include link-button();
+
+  &:hover {
+    color: var(--primary-color-87);
+  }
+}
+
 .contact-form__button--raised {
   @include link-button();
+
+  &:hover {
+    background-color: var(--primary-color-87);
+  }
 }
 
 .contact-form__button {
