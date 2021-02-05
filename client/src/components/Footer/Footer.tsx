@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { NavHashLink } from 'react-router-hash-link';
 import './Footer.scss';
 
 interface Props {
@@ -37,9 +38,14 @@ export const Footer: React.FC<Props> = ({ setContactState }) => {
           </a>
         </div>
         <section className="footer-end">
-          <a className="footer-link" href="#header">
+          <NavHashLink
+            className="footer-link"
+            smooth
+            to="#home"
+            activeClassName="selectedLink"
+          >
             BACK TO TOP
-          </a>
+          </NavHashLink>
           <div className="footer-line" />
           <p>© 2021 Tina Bisgaard</p>
         </section>

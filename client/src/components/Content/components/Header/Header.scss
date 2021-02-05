@@ -59,5 +59,8 @@
   letter-spacing: 0.5px;
   cursor: pointer;
   z-index: 2;
-  border: 1px solid black;
+
+  &:hover {
+    opacity: 75%;
+  }
 }

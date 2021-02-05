@@ -12,26 +12,24 @@ const Contact: React.FC<Props> = ({ setContactState }) => {
   const [formMessageValue, setFormMessageValue] = useState('');
 
   // Submit validation message based on success or error submission
-  const formValidationMessage = (input) => {
-    const formValidator = document.getElementById('contact-form-validator');
+  const formValidationMessage = (validation) => {
+    const formButtons = document.getElementById('contact-form__buttons');
+    const validatorEl = document.createElement('DIV');
 
-    if (formValidator) {
-      if (input === false) {
-        formValidator.style.opacity = '1';
-        formValidator.innerHTML = 'Fields marked with * are required.';
-        formValidator.style.color = '#cf6679';
-        setTimeout(() => {
-          formValidator.style.opacity = '0';
-        }, 10000);
-      } else if (input === true) {
-        formValidator.style.opacity = '1';
-        formValidator.innerHTML = 'Your message has been successfully sent!';
-        formValidator.style.color = '#00C851';
-        setTimeout(() => {
-          formValidator.style.opacity = '0';
-        }, 10000);
-      }
-    }
+    /* eslint-disable-next-line */
+    const validatorElText =
+      validation === 'error'
+        ? 'Fields with * are required.'
+        : 'Your message has been successfully sent!';
+
+    validatorEl.classList.add('contact-form-validator');
+    validatorEl.classList.add(validation);
+    validatorEl.innerHTML = validatorElText;
+
+    formButtons?.append(validatorEl);
+    setTimeout(() => {
+      validatorEl.style.opacity = '0';
+    }, 10000);
   };
 
   // Validate form inputs with regex patterns
@@ -52,15 +50,9 @@ const Contact: React.FC<Props> = ({ setContactState }) => {
 
   // Empty inputs after successful submission
   const emptyInputs = () => {
-    const formName = document.getElementById('formName');
-    const formEmail = document.getElementById('formEmail');
-    const formMessage = document.getElementById('formMessage');
-
-    if (formName && formEmail && formMessage) {
-      formName.innerHTML = '';
-      formEmail.innerHTML = '';
-      formMessage.innerHTML = '';
-    }
+    setFormNameValue('');
+    setFormEmailValue('');
+    setFormMessageValue('');
   };
 
   const sendEmail = async (email: any) => {
@@ -68,19 +60,18 @@ const Contact: React.FC<Props> = ({ setContactState }) => {
       method: 'POST',
       body: email,
     })
-      .then(() => formValidationMessage(true))
+      .then(() => formValidationMessage('success'))
       .catch((err) => console.error(`There was an error: ${err}`));
   };
 
   // Handle form submission. Run validation, and send email and empty inputs if valid.
   const handleSubmit = (e: any) => {
+    e.preventDefault();
     if (!formValidation()) {
-      formValidationMessage(false);
+      formValidationMessage('error');
       return;
     }
 
-    e.preventDefault();
-    e.stopPropagation();
     const form = document.getElementById('contact-form');
     if (form instanceof HTMLFormElement) {
       const email = new FormData(form);
@@ -119,7 +110,6 @@ const Contact: React.FC<Props> = ({ setContactState }) => {
           encType="multipart/form-data"
           onSubmit={(e) => handleSubmit(e)}
         >
-          <div id="contact-form-validator" className="contact-form-validator" />
           <label
             htmlFor="formName"
             id="formNameLabel"
@@ -132,6 +122,7 @@ const Contact: React.FC<Props> = ({ setContactState }) => {
               required
               pattern="^[a-zA-Z\s]*$"
               placeholder=" "
+              value={formNameValue}
               className="contact-form__input"
               onChange={(e) => setFormNameValue(e.target.value)}
             />
@@ -151,6 +142,7 @@ const Contact: React.FC<Props> = ({ setContactState }) => {
               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
               placeholder=" "
               className="contact-form__input"
+              value={formEmailValue}
               onChange={(e) => setFormEmailValue(e.target.value)}
             />
             <span className="contact-form__placeholder">Email*</span>
@@ -159,7 +151,7 @@ const Contact: React.FC<Props> = ({ setContactState }) => {
           <label
             htmlFor="formMessage"
             id="formMessageLabel"
-            className="contact-form__input-container"
+            className="contact-form__textarea-container"
           >
             <textarea
               name="message"
@@ -167,12 +159,14 @@ const Contact: React.FC<Props> = ({ setContactState }) => {
               required
               className="contact-form__textarea"
               placeholder=" "
+              maxLength={1000}
+              value={formMessageValue}
               onChange={(e) => setFormMessageValue(e.target.value)}
             />
             <span className="contact-form__placeholder">Message*</span>
             <span className="contact-form__error">* Max. 1000 characters allowed.</span>
           </label>
-          <div className="contact-form__buttons">
+          <div id="contact-form__buttons" className="contact-form__buttons">
             <button
               className="contact-form__button--raised"
               type="submit"

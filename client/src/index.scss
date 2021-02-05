@@ -44,6 +44,10 @@ button, textarea, input {
   color: inherit;
 }
 
+::selection {
+  background-color: rgba(139, 123, 199, 0.5);
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

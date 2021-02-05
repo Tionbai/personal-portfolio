@@ -9,7 +9,6 @@
   position: absolute;
   z-index: 2;
   padding: 10px;
-  // display: none;
 }
 
 .navbar--small-screen {
@@ -27,7 +26,6 @@
   padding: 10px;
   transition: all 0.2s ease;
   cursor: pointer;
-  // border: 1px solid black;
 }
 
 .navbar-item {
@@ -52,8 +50,6 @@
 }
 
 .navbar-fixed > .navbar-item:hover {
-  // color: rgb(120, 103, 194);
-  // opacity: 0.75;
   color: var(--primary-color-75);
 }
 

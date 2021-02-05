@@ -20,6 +20,10 @@
   letter-spacing: 0.5px;
   border-radius: 20px;
   cursor: pointer;
+
+  &:hover {
+    opacity: 75%;
+  }
 }
 
 .Footer {
@@ -62,7 +66,6 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-self: center;
-  // border: 1px solid black;
 }
 
 .footer-content > *:not(:nth-child(1)):not(:last-child) {
@@ -74,7 +77,6 @@
 }
 
 .footer-links {
-  // height: 75px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -84,11 +86,6 @@
 .footer-link {
   @include link-button();
   color: white;
-}
-
-.footer-link:hover,
-.footer-link--raised:hover {
-  opacity: 75%;
 }
 
 .footer-link--raised {

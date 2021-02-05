@@ -16,6 +16,10 @@
   border-radius: 20px;
   cursor: pointer;
   z-index: 2;
+
+  &:hover {
+    opacity: 75%;
+  }
 }
 
 .Project {
@@ -156,13 +160,6 @@
   @include link-button();
   background-color: var(--primary-color);
   color: white;
-}
-
-.project-link:hover,
-.project-link--raised:hover,
-.project-link--on-white:hover,
-.project-link--raised--on-white:hover {
-  opacity: 75%;
 }
 
 .project-link:visited {
