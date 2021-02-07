@@ -22,14 +22,14 @@ export const Footer: React.FC<Props> = ({ setContactState }) => {
         </p>
         <div className="footer-links">
           <button
-            className="footer-link--raised"
+            className="btn--raised--bg-dark"
             type="button"
             onClick={() => setContactState(true)}
           >
             CONTACT
           </button>
           <a
-            className="footer-link--raised"
+            className="btn--raised--bg-dark"
             target="_blank"
             rel="noreferrer noopener"
             href="https://github.com/Tionbai"
@@ -39,7 +39,7 @@ export const Footer: React.FC<Props> = ({ setContactState }) => {
         </div>
         <section className="footer-end">
           <NavHashLink
-            className="footer-link"
+            className="btn--bg-dark"
             smooth
             to="#home"
             activeClassName="selectedLink"

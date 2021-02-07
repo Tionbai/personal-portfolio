@@ -1,34 +1,22 @@
 [
   {
     "id": "a",
-    "name": "Todolist React",
+    "name": "Base setup webpack",
     "stack": [
       {
         "identifier": "Frontend",
-        "technologies": ["JavaScript", "React"]
-      }
-    ],
-    "github": "https://github.com/Tionbai/TodoApp",
-    "video": "assets/projects/videos/Todolist-React-video.mp4"
-  },
-  {
-    "id": "b",
-    "name": "Todolist Node.js",
-    "stack": [
-      {
-        "identifier": "Frontend",
-        "technologies": ["JavaScript"]
+        "technologies": ["JavaScript", "Webpack"]
       },
       {
         "identifier": "Backend",
         "technologies": ["Node.js"]
       }
     ],
-    "github": "https://github.com/Tionbai/TodoAppVanilla",
-    "video": "assets/projects/videos/Todolist-Node-video.mp4"
+    "github": "https://github.com/Tionbai/base-app-node-webpack",
+    "video": "assets/projects/videos/Baseapp-webpack-video.mp4"
   },
   {
-    "id": "c",
+    "id": "b",
     "name": "The Gospels",
     "stack": [
       {
@@ -44,19 +32,43 @@
     "video": "assets/projects/videos/TheGospels-video.mp4"
   },
   {
-    "id": "d",
-    "name": "Base setup webpack",
+    "id": "c",
+    "name": "Todolist Node.js",
     "stack": [
       {
         "identifier": "Frontend",
-        "technologies": ["JavaScript", "Webpack"]
+        "technologies": ["JavaScript"]
       },
       {
         "identifier": "Backend",
-        "technologies": ["Node.js", "Express"]
+        "technologies": ["Node.js"]
       }
     ],
-    "github": "https://github.com/Tionbai/base-app-node-webpack",
-    "video": "assets/projects/videos/Baseapp-webpack-video.mp4"
+    "github": "https://github.com/Tionbai/TodoAppVanilla",
+    "video": "assets/projects/videos/Todolist-Node-video.mp4"
+  },
+  {
+    "id": "d",
+    "name": "Todolist React",
+    "stack": [
+      {
+        "identifier": "Frontend",
+        "technologies": ["JavaScript", "React"]
+      }
+    ],
+    "github": "https://github.com/Tionbai/TodoApp",
+    "video": "assets/projects/videos/Todolist-React-video.mp4"
+  },
+  {
+    "id": "e",
+    "name": "Weather App",
+    "stack": [
+      {
+        "identifier": "Frontend",
+        "technologies": ["JavaScript", "React"]
+      }
+    ],
+    "github": "https://github.com/Tionbai/WeatherApp",
+    "video": "assets/projects/videos/WeatherApp-video.mp4"
   }
 ]

@@ -1,3 +1,5 @@
+@import '../../../../base';
+
 .Header {
   position: relative;
   display: flex;
@@ -20,12 +22,8 @@
 }
 
 .Header-video {
+  @include full-size-container();
   position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  opacity: 1;
   object-fit: cover;
 }
 
@@ -46,21 +44,4 @@
   font-size: 1rem;
   letter-spacing: 2px;
   margin: 10px 0 20px;
-}
-
-.header-button--raised {
-  min-width: 125px;
-  padding: 10px 15px;
-  background-color: white;
-  color:  var(--primary-color);
-  border-radius: 20px;
-  font-size: 1rem;
-  font-weight: bold;
-  letter-spacing: 0.5px;
-  cursor: pointer;
-  z-index: 2;
-
-  &:hover {
-    background-color:rgb(235, 235, 235);
-  }
 }

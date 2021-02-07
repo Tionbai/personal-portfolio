@@ -18,7 +18,7 @@
   // To prevent overflow on end of x-axis
   width: calc(100% + 1px);
   height: calc(100% + 50px);
-  clip-path: polygon(0% 50px, 100% 0, 100% calc(100% - 50px), 0 100%);
+  clip-path: polygon(0% 50px, 100% 0, 100% 100%, 0 100%);
   background-color: white;
   // To remove horizontal line from clip path in Chrome
   transform: scaleZ(1.1);

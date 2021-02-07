@@ -87,7 +87,16 @@ const Contact: React.FC<Props> = ({ setContactState }) => {
     const contactContainerEl = document.getElementById('contact__container');
     const contactEl = document.getElementById('contact');
     const contactFormEl = document.getElementById('contact-form');
-    if (e.target === contactEl || e.target === contactFormEl) return;
+    const contactFormButtons = document.getElementById('contact-form__buttons');
+
+    if (
+      /* prettier-ignore */
+      e.target === contactEl
+      || e.target === contactFormEl
+      || e.target === contactFormButtons
+    ) {
+      return;
+    }
     if (e.target === contactContainerEl || e.target.innerHTML.includes('CANCEL')) {
       setContactState(false);
     }
@@ -168,14 +177,14 @@ const Contact: React.FC<Props> = ({ setContactState }) => {
           </label>
           <div id="contact-form__buttons" className="contact-form__buttons">
             <button
-              className="contact-form__button--raised"
+              className="btn--raised--bg-light"
               type="submit"
               onClick={(e) => handleSubmit(e)}
             >
               SUBMIT
             </button>
             <button
-              className="contact-form__button"
+              className="btn--bg-light"
               type="button"
               onClick={(e) => handleCloseModal(e)}
             >

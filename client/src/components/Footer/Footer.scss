@@ -1,26 +1,4 @@
-@mixin full-size-container-clip-path {
-  position: absolute;
-  top: -50px;
-  left: 0;
-  // To prevent overflow on end of x-axis
-  width: calc(100% + 1px);
-  height: calc(100% + 50px);
-  clip-path: polygon(0% 50px, 100% 0, 100% 100%, 0 100%);
-  // To remove horizontal line left from clip path in Chrome
-  transform: scaleZ(1.1);
-}
-
-@mixin link-button {
-  min-width: 125px;
-  margin: 10px;
-  padding: 10px 15px;
-  font-size: 1rem;
-  font-weight: bold;
-  text-align: center;
-  letter-spacing: 0.5px;
-  border-radius: 20px;
-  cursor: pointer;
-}
+@import '../../base';
 
 .Footer {
   position: relative;
@@ -77,25 +55,6 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-}
-
-.footer-link {
-  @include link-button();
-  color: white;
-
-  &:hover {
-    color: rgb(235, 235, 235);
-  }
-}
-
-.footer-link--raised {
-  @include link-button();
-  background: white;
-  color: var(--primary-color);
-
-  &:hover {
-    background-color: rgb(235, 235, 235);
-  }
 }
 
 .footer-end {

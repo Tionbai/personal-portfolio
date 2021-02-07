@@ -10,7 +10,7 @@ const Header: React.FC<Props> = () => {
       <div className="Header-text">
         <h1 className="header-text__title">TINA BISGAARD</h1>
         <h2 className="header-text__subtitle">FULL STACK WEB DEVELOPER</h2>
-        <a className="header-button--raised" href="#projects">
+        <a className="btn--raised--bg-dark" href="#projects">
           SEE PROJECTS
         </a>
       </div>

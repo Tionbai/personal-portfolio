@@ -15,17 +15,13 @@ const ProjectModal: React.FC<Props> = ({ project, setModalState, handleClickDemo
         <video className="project-video" src={project.video} muted loop autoPlay />
         <div className="project-modal__links">
           <button
-            className="project-link--raised--on-white"
+            className="btn--raised--bg-light"
             type="button"
             onClick={(e) => handleClickDemo(e)}
           >
             SOURCE CODE
           </button>
-          <button
-            className="project-link--on-white"
-            type="button"
-            onClick={() => setModalState(false)}
-          >
+          <button className="btn--bg-light" type="button" onClick={() => setModalState(false)}>
             CLOSE
           </button>
         </div>

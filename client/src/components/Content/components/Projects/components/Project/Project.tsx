@@ -76,7 +76,7 @@ const Project: React.FC<Props> = ({ project }) => {
           <div className="Project-inner__container back">
             <div className="project-links">
               <a
-                className="project-link"
+                className="btn--bg-dark"
                 href={project.github}
                 target="_blank"
                 rel="noreferrer noopener"
