@@ -66,39 +66,38 @@
   background-color: rgba(22, 82, 160, 0.25);
   background-image: linear-gradient(150deg, rgba(100, 69, 238, 1), rgba(13, 39, 109, 1));
 }
-
 .project-image.a:after {
   background-image: linear-gradient(150deg, rgb(194, 55, 199), rgba(13, 39, 109, 1));
 }
 .project-image.b:after {
-  background-image: linear-gradient(150deg, rgb(69, 213, 238), rgb(13, 109, 107));
+  background-image: linear-gradient(150deg, rgba(100, 69, 238, 1), rgba(13, 39, 109, 1));
 }
 .project-image.c:after {
-  background-image: linear-gradient(150deg, rgb(209, 185, 51), rgb(155, 100, 17));
+  background-image: linear-gradient(150deg, rgb(69, 213, 238), rgb(13, 109, 107));
 }
 .project-image.d:after {
   background-image: linear-gradient(150deg, rgb(69, 238, 145), rgb(13, 109, 64));
 }
 .project-image.e:after {
-  background-image: linear-gradient(150deg, rgb(238, 69, 204), rgb(109, 13, 93));
+  background-image: linear-gradient(150deg, rgb(209, 185, 51), rgb(155, 100, 17));
 }
 .project-image.f:after {
-  background-image: linear-gradient(150deg, rgba(100, 69, 238, 1), rgba(13, 39, 109, 1));
+  background-image: linear-gradient(150deg, rgb(238, 69, 204), rgb(109, 13, 93));
 }
 .project-image.g:after {
   background-image: linear-gradient(150deg, rgb(194, 55, 199), rgba(13, 39, 109, 1));
 }
 .project-image.h:after {
-  background-image: linear-gradient(150deg, rgb(69, 213, 238), rgb(13, 109, 107));
+  background-image: linear-gradient(150deg, rgba(100, 69, 238, 1), rgba(13, 39, 109, 1));
 }
 .project-image.i:after {
-  background-image: linear-gradient(150deg, rgb(209, 185, 51), rgb(155, 100, 17));
+  background-image: linear-gradient(150deg, rgb(69, 213, 238), rgb(13, 109, 107));
 }
 .project-image.j:after {
   background-image: linear-gradient(150deg, rgb(69, 238, 145), rgb(13, 109, 64));
 }
 .project-image.k:after {
-  background-image: linear-gradient(150deg, rgb(238, 69, 204), rgb(109, 13, 93));
+  background-image: linear-gradient(150deg, rgb(209, 185, 51), rgb(155, 100, 17));
 }
 
 .project-text {
@@ -145,9 +144,9 @@
   @include link-button();
   background-color: white;
   color: rgb(13, 39, 109);
-  
+
   &:hover {
-    background-color:rgb(235, 235, 235);
+    background-color: rgb(235, 235, 235);
   }
 }
 

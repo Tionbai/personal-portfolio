@@ -4,6 +4,7 @@
     "name": "Personal Blog Next.js",
     "title": "A personal blog written in Next.js.",
     "description": "Technologies used: HTML, CSS/Sass, JavaScript, React.js, YouTube API and Mapbox static location images.",
+    "link": "https://tinas-blog.vercel.app/",
     "stack": [
       {
         "identifier": "Frontend",

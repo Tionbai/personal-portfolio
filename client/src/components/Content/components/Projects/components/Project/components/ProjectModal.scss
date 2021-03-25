@@ -51,6 +51,18 @@
   }
 }
 
+.project-modal__link {
+  display: inline-block;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: underline;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
 .project-modal__links {
   height: 50px;
   display: flex;

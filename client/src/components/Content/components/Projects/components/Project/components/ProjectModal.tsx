@@ -16,6 +16,16 @@ const ProjectModal: React.FC<Props> = ({ project, setModalState, handleClickDemo
         <section className="project-description">
           <h3>{project.title}</h3>
           <p>{project.description}</p>
+          {project.link && (
+            <a
+              className="project-modal__link"
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Visit app
+            </a>
+          )}
         </section>
         <div className="project-modal__links">
           <button
