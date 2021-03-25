@@ -1,23 +1,23 @@
 [
   {
     "id": "a",
-    "name": "Base setup webpack",
+    "name": "Personal Blog Next.js",
+    "title": "A personal blog written in Next.js.",
+    "description": "Technologies used: HTML, CSS/Sass, JavaScript, React.js, YouTube API and Mapbox static location images.",
     "stack": [
       {
         "identifier": "Frontend",
-        "technologies": ["JavaScript", "Webpack"]
-      },
-      {
-        "identifier": "Backend",
-        "technologies": ["Node.js"]
+        "technologies": ["Next.js", "(JavaScript, React)"]
       }
     ],
-    "github": "https://github.com/Tionbai/base-app-node-webpack",
-    "video": "assets/projects/videos/Baseapp-webpack-video.mp4"
+    "github": "https://github.com/Tionbai/personal-blog-next-video",
+    "video": "assets/projects/videos/personal-blog-next-video.mp4"
   },
   {
     "id": "b",
-    "name": "The Gospels",
+    "name": "The Gospels React",
+    "title": "A Gospels reading app written in React.js.",
+    "description": "Technologies used: HTML, CSS, JavaScript, React.js (hooks, useContext and Router), Node.js and Express.",
     "stack": [
       {
         "identifier": "Frontend",
@@ -34,6 +34,8 @@
   {
     "id": "c",
     "name": "Todolist Node.js",
+    "title": "A state-based todo app written in JavaScript and Node.js.",
+    "description": "Technologies used: HTML, CSS, JavaScript, Node.js, HTTP server and localStorage.",
     "stack": [
       {
         "identifier": "Frontend",
@@ -50,6 +52,8 @@
   {
     "id": "d",
     "name": "Todolist React",
+    "title": "A todo app written in React.js.",
+    "description": "Technologies used: HTML, CSS, JavaScript, React.js (class components, hooks) and React Beautiful DND (drag and drop).",
     "stack": [
       {
         "identifier": "Frontend",
@@ -61,7 +65,9 @@
   },
   {
     "id": "e",
-    "name": "Weather App",
+    "name": "Weather App React",
+    "title": "A weather app written in React.js.",
+    "description": "Technologies used: HTML, CSS, JavaScript, React.js (hooks) and OpenWeatherMap API.",
     "stack": [
       {
         "identifier": "Frontend",
@@ -70,5 +76,89 @@
     ],
     "github": "https://github.com/Tionbai/WeatherApp",
     "video": "assets/projects/videos/WeatherApp-video.mp4"
+  },
+  {
+    "id": "f",
+    "name": "Responsive Navbar",
+    "title": "A responsive navbar written in HTML, CSS and JS.",
+    "description": "Technologies used: HTML, CSS and JavaScript.",
+    "stack": [
+      {
+        "identifier": "Frontend",
+        "technologies": ["HTML", "CSS", "JavaScript"]
+      }
+    ],
+    "github": "https://github.com/Tionbai/responsive-navbar",
+    "video": "assets/projects/videos/ResponsiveNavBar-video.mp4"
+  },
+  {
+    "id": "g",
+    "name": "Landing Page Hat Shop",
+    "title": "A modern landing page written in HTML, CSS and JS.",
+    "description": "Technologies used: HTML, CSS and JavaScript.",
+    "stack": [
+      {
+        "identifier": "Frontend",
+        "technologies": ["HTML", "CSS", "JavaScript"]
+      }
+    ],
+    "github": "https://github.com/Tionbai/landing-page-hat-shop",
+    "video": "assets/projects/videos/landing-page-hat-shop-video.mp4"
+  },
+  {
+    "id": "h",
+    "name": "Landing Page Video",
+    "title": "A modern landing page written in HTML, CSS and JS.",
+    "description": "Technologies used: HTML, CSS and JavaScript.",
+    "stack": [
+      {
+        "identifier": "Frontend",
+        "technologies": ["HTML", "CSS", "JavaScript"]
+      }
+    ],
+    "github": "https://github.com/Tionbai/landing-page-video-background",
+    "video": "assets/projects/videos/landing-page-video-video.mp4"
+  },
+  {
+    "id": "i",
+    "name": "Clock JavaScript",
+    "title": "A clock written in HTML, CSS and JS.",
+    "description": "Technologies used: HTML, CSS and JavaScript.",
+    "stack": [
+      {
+        "identifier": "Frontend",
+        "technologies": ["HTML", "CSS", "JavaScript"]
+      }
+    ],
+    "github": "https://github.com/Tionbai/clock-javascript",
+    "video": "assets/projects/videos/clock-javascript-video.mp4"
+  },
+  {
+    "id": "j",
+    "name": "Star Animation CSS",
+    "title": "A star animation written in HTML and CSS.",
+    "description": "Technologies used: HTML and CSS.",
+    "stack": [
+      {
+        "identifier": "Frontend",
+        "technologies": ["HTML", "CSS"]
+      }
+    ],
+    "github": "https://github.com/Tionbai/star-animation-css",
+    "video": "assets/projects/videos/star-animation-css-video.mp4"
+  },
+  {
+    "id": "k",
+    "name": "CSS Battle Solutions",
+    "title": "A collection of CSS battle solutions written in HTML and CSS.",
+    "description": "Technologies used: HTML and CSS.",
+    "stack": [
+      {
+        "identifier": "Frontend",
+        "technologies": ["HTML", "CSS"]
+      }
+    ],
+    "github": "https://github.com/Tionbai/css-battle",
+    "video": "assets/projects/videos/css-battle-video.mp4"
   }
 ]

@@ -12,7 +12,11 @@ const ProjectModal: React.FC<Props> = ({ project, setModalState, handleClickDemo
   return (
     <div id="project-modal__container" className="project-modal__container">
       <section className="ProjectModal">
-        <video className="project-video" src={project.video} muted loop autoPlay />
+        <video className="project-modal__video" src={project.video} muted loop autoPlay />
+        <section className="project-description">
+          <h3>{project.title}</h3>
+          <p>{project.description}</p>
+        </section>
         <div className="project-modal__links">
           <button
             className="btn--raised--bg-light"
