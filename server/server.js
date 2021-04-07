@@ -1,13 +1,13 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import nodemailer from 'nodemailer';
-import multiparty from 'multiparty';
-import dotenv from 'dotenv';
-import path from 'path';
-import { fileURLToPath } from 'url';
+const express = require('express');
+const bodyParser = require('body-parser');
+const nodemailer = require('nodemailer');
+const multiparty = require('multiparty');
+const dotenv = require('dotenv');
+const path = require('path');
+// const { fileURLToPath } = require('url');
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
 
 dotenv.config();
 

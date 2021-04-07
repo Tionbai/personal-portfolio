@@ -2,7 +2,7 @@
   "name": "personal-portfolio",
   "version": "1.0.0",
   "description": "My personal portfolio page",
-  "main": "server/server.cjs",
+  "main": "server/server.js",
   "type": "module",
   "scripts": {
     "begin": "npm run build && cd server && node server.js",
