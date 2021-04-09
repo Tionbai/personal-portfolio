@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "My personal portfolio page",
   "main": "server/server.js",
-  "type": "module",
   "scripts": {
     "begin": "npm run build && cd server && node server.js",
     "start": "cd server && node server.js",
@@ -34,26 +33,12 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "googleapis": "^71.0.0",
-    "heroku": "^7.2.0",
-    "multiparty": "^4.2.2",
-    "nodemailer": "^6.4.17",
+    "heroku": "^7.52.0",
+    "nodemailer": "^6.5.0",
     "path": "^0.12.7"
   },
   "devDependencies": {
-    "body-parser": "^1.19.0",
-    "concurrently": "^5.3.0",
-    "dotenv": "^8.2.0",
-    "eslint": "^7.18.0",
-    "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-config-prettier": "^7.2.0",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-prettier": "^3.3.1",
-    "express": "^4.17.1",
-    "multiparty": "^4.2.2",
-    "nodemailer": "^6.4.17",
-    "nodemon": "^2.0.7",
-    "prettier": "^2.2.1",
-    "typescript": "^4.1.3"
+    "concurrently": "^5.3.0"
   },
   "engines": {
     "node": "14.x"
