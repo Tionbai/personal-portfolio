@@ -5,10 +5,6 @@ const path = require('path');
 const { google } = require('googleapis');
 
 const { OAuth2 } = google.auth;
-// const { fileURLToPath } = require('url');
-
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = path.dirname(__filename);
 
 dotenv.config();
 

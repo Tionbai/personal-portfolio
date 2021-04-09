@@ -16,19 +16,27 @@ const Contact: React.FC<Props> = ({ setContactState }) => {
   const [values, setValues] = useState(initialValues);
 
   // Submit validation message based on success or error submission
-  const formValidationMessage = (validation) => {
+  const formValidationMessage = async (validation) => {
     const formButtons = document.getElementById('contact-form__buttons');
     const validatorEl = document.createElement('DIV');
-
-    /* eslint-disable-next-line */
-    const validatorElText =
-      validation === 'error'
-        ? 'Fields with * are required.'
-        : 'Your message has been successfully sent!';
-
     validatorEl.classList.add('contact-form-validator');
-    validatorEl.classList.add(validation);
-    validatorEl.innerHTML = validatorElText;
+
+    switch (validation) {
+      case 'success':
+        validatorEl.classList.add('success');
+        validatorEl.innerHTML = 'Your message has been successfully sent!';
+        break;
+      case 'error-400':
+        validatorEl.classList.add('error');
+        validatorEl.innerHTML = 'Fields with * are required.';
+        break;
+      case 'error-500':
+        validatorEl.classList.add('error');
+        validatorEl.innerHTML = 'Sorry, something wrong happened!';
+        break;
+      default:
+        break;
+    }
 
     formButtons?.append(validatorEl);
     setTimeout(() => {
@@ -39,7 +47,7 @@ const Contact: React.FC<Props> = ({ setContactState }) => {
   // Validate form inputs with regex patterns
   const formValidation = () => {
     const nameRegex = /^[a-zA-Z\s]*$/;
-    const emailRegex = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+    const emailRegex = /[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
     const messageRegex = /^(?!\s*$).+/;
 
     const validName = values.name.match(nameRegex);
@@ -52,45 +60,30 @@ const Contact: React.FC<Props> = ({ setContactState }) => {
     return false;
   };
 
-  // Empty inputs after successful submission
-  const emptyInputs = () => {
-    setValues(initialValues);
-  };
-
-  const sendEmail = async (email: any) => {
-    try {
-      const res = await fetch('/api/send/email', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(email),
-      });
-      const resMessage = await res.json();
-      console.log(res);
-      if (res.status === 200) {
-        formValidationMessage('success');
-      } else {
-        console.log(resMessage.message);
-      }
-    } catch (err) {
-      console.error(`There was an error: ${err}`);
-    }
-  };
-
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
 
   // Handle form submission. Run validation, and send email and empty inputs if valid.
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
 
     if (!formValidation()) {
-      formValidationMessage('error');
+      formValidationMessage('error-400');
       return;
     }
 
-    sendEmail(values);
-    emptyInputs();
+    const res = await fetch('/api/send/email', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(values),
+    });
+    if (res.status === 200) {
+      formValidationMessage('success');
+      setValues(initialValues);
+    } else {
+      formValidationMessage('error-500');
+    }
   };
 
   // Close contact modal on outside click or CANCEL button click
@@ -154,7 +147,7 @@ const Contact: React.FC<Props> = ({ setContactState }) => {
               id="formEmail"
               type="email"
               required
-              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+              pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"
               placeholder=" "
               className="contact-form__input"
               value={values.email}
