@@ -35,12 +35,12 @@ const Skills: React.FC<Props> = () => {
       <section className="skills-container">
         {skillsList.map((skill) => {
           return (
-            <article className="skills-item">
+            <article className="skills-item" key={skill.name}>
               <img className="skills-item__icon" src={skill.image} alt="" />
               <h4>{skill.name.toUpperCase()}</h4>
               <ul className="skills-item__list">
                 {skill.skills.map((skillElement) => {
-                  return <li>{skillElement}</li>;
+                  return <li key={skillElement}>{skillElement}</li>;
                 })}
               </ul>
             </article>

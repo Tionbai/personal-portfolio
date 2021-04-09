@@ -6,10 +6,14 @@ interface Props {
   setContactState?: any;
 }
 
+const initialValues = {
+  name: '',
+  email: '',
+  message: '',
+};
+
 const Contact: React.FC<Props> = ({ setContactState }) => {
-  const [formNameValue, setFormNameValue] = useState('');
-  const [formEmailValue, setFormEmailValue] = useState('');
-  const [formMessageValue, setFormMessageValue] = useState('');
+  const [values, setValues] = useState(initialValues);
 
   // Submit validation message based on success or error submission
   const formValidationMessage = (validation) => {
@@ -38,9 +42,9 @@ const Contact: React.FC<Props> = ({ setContactState }) => {
     const emailRegex = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
     const messageRegex = /^(?!\s*$).+/;
 
-    const validName = formNameValue.match(nameRegex);
-    const validEmail = formEmailValue.match(emailRegex);
-    const validMessage = formMessageValue.match(messageRegex);
+    const validName = values.name.match(nameRegex);
+    const validEmail = values.email.match(emailRegex);
+    const validMessage = values.message.match(messageRegex);
 
     if (validName && validEmail && validMessage) {
       return true;
@@ -50,40 +54,49 @@ const Contact: React.FC<Props> = ({ setContactState }) => {
 
   // Empty inputs after successful submission
   const emptyInputs = () => {
-    setFormNameValue('');
-    setFormEmailValue('');
-    setFormMessageValue('');
+    setValues(initialValues);
   };
 
   const sendEmail = async (email: any) => {
-    fetch('/api/send/email', {
-      method: 'POST',
-      body: email,
-    })
-      .then(() => formValidationMessage('success'))
-      .catch((err) => console.error(`There was an error: ${err}`));
+    try {
+      const res = await fetch('/api/send/email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(email),
+      });
+      const resMessage = await res.json();
+      console.log(res);
+      if (res.status === 200) {
+        formValidationMessage('success');
+      } else {
+        console.log(resMessage.message);
+      }
+    } catch (err) {
+      console.error(`There was an error: ${err}`);
+    }
+  };
+
+  const handleChange = (e) => {
+    setValues({ ...values, [e.target.name]: e.target.value });
   };
 
   // Handle form submission. Run validation, and send email and empty inputs if valid.
   const handleSubmit = (e: any) => {
     e.preventDefault();
+
     if (!formValidation()) {
       formValidationMessage('error');
       return;
     }
 
-    const form = document.getElementById('contact-form');
-    if (form instanceof HTMLFormElement) {
-      const email = new FormData(form);
-      sendEmail(email);
-      emptyInputs();
-    }
+    sendEmail(values);
+    emptyInputs();
   };
 
   // Close contact modal on outside click or CANCEL button click
   const handleCloseModal = (e) => {
-    e.stopPropagation();
     e.preventDefault();
+    e.stopPropagation();
     const contactContainerEl = document.getElementById('contact__container');
     const contactEl = document.getElementById('contact');
     const contactFormEl = document.getElementById('contact-form');
@@ -105,20 +118,13 @@ const Contact: React.FC<Props> = ({ setContactState }) => {
   return (
     <div
       role="presentation"
-      onClick={(e) => handleCloseModal(e)}
+      onClick={handleCloseModal}
       id="contact__container"
       className="contact__container"
     >
       <section id="contact" className="Contact">
         <h1 className="title contact-title">Contact</h1>
-        <form
-          id="contact-form"
-          className="contact-form"
-          method="POST"
-          action="send"
-          encType="multipart/form-data"
-          onSubmit={(e) => handleSubmit(e)}
-        >
+        <form id="contact-form" className="contact-form" onSubmit={handleSubmit}>
           <label
             htmlFor="formName"
             id="formNameLabel"
@@ -131,9 +137,9 @@ const Contact: React.FC<Props> = ({ setContactState }) => {
               required
               pattern="^[a-zA-Z\s]*$"
               placeholder=" "
-              value={formNameValue}
+              value={values.name}
               className="contact-form__input"
-              onChange={(e) => setFormNameValue(e.target.value)}
+              onChange={handleChange}
             />
             <span className="contact-form__placeholder">Name*</span>
             <span className="contact-form__error">* Fill out a valid name (A-Z).</span>
@@ -151,8 +157,8 @@ const Contact: React.FC<Props> = ({ setContactState }) => {
               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
               placeholder=" "
               className="contact-form__input"
-              value={formEmailValue}
-              onChange={(e) => setFormEmailValue(e.target.value)}
+              value={values.email}
+              onChange={handleChange}
             />
             <span className="contact-form__placeholder">Email*</span>
             <span className="contact-form__error">* Fill out a valid email (X@Y.Z).</span>
@@ -169,25 +175,17 @@ const Contact: React.FC<Props> = ({ setContactState }) => {
               className="contact-form__textarea"
               placeholder=" "
               maxLength={1000}
-              value={formMessageValue}
-              onChange={(e) => setFormMessageValue(e.target.value)}
+              value={values.message}
+              onChange={handleChange}
             />
             <span className="contact-form__placeholder">Message*</span>
             <span className="contact-form__error">* Max. 1000 characters allowed.</span>
           </label>
           <div id="contact-form__buttons" className="contact-form__buttons">
-            <button
-              className="btn--raised--bg-light"
-              type="submit"
-              onClick={(e) => handleSubmit(e)}
-            >
+            <button className="btn--raised--bg-light" type="submit" onClick={handleSubmit}>
               SUBMIT
             </button>
-            <button
-              className="btn--bg-light"
-              type="button"
-              onClick={(e) => handleCloseModal(e)}
-            >
+            <button className="btn--bg-light" type="button" onClick={handleCloseModal}>
               CANCEL
             </button>
           </div>
