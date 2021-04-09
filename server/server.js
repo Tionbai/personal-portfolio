@@ -19,6 +19,13 @@ const PORT = process.env.PORT || 8080;
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+if (process.env.NODE_ENV === 'production') {
+  app.use('/', express.static(path.join(__dirname, '../client/build')));
+  app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+  });
+}
+
 const createTransporter = async (emailData, res) => {
   const oauth2Client = new OAuth2(
     process.env.CLIENT_ID,
@@ -77,12 +84,5 @@ app.post('/api/send/email', (req, res) => {
 
   return createTransporter(emailData, res);
 });
-
-if (process.env.NODE_ENV === 'production') {
-  app.use('/', express.static(path.join(__dirname, '../client/build')));
-  app.get('/*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
-  });
-}
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
